@@ -1,4 +1,4 @@
-# Projecte Final: Sistema de Control de Fichatges amb Raspberry Pi i Aplicació Web
+# IOT: Sistema de Control de Fichatges amb Raspberry Pi i Aplicació Web
 
 ## Introducció al Projecte
 
