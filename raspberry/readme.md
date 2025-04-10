@@ -107,4 +107,96 @@ Hem dissenyat una base de dades robusta que permet gestionar eficaçment les dad
 
 ---
 
-(A continuació segueix la segona part explicant en profunditat l'aplicació web, que proporcionaré en el següent missatge.)
+## Aplicació Web
+
+L'aplicació web desenvolupada serveix com a interfície principal per interactuar amb les dades generades pel sistema RFID. Aquesta aplicació permet gestionar els usuaris, visualitzar estadístiques, administrar les targetes RFID, així com realitzar configuracions generals del sistema.
+
+### Estructura de l'aplicació web
+
+L'aplicació web està estructurada en diverses pàgines i seccions:
+
+#### **Login**
+
+Permet als usuaris iniciar sessió amb el seu correu electrònic i contrasenya. La contrasenya es gestiona de manera segura mitjançant la funció `password_hash` i es verifica amb `password_verify`.
+
+#### **Panel d'Administració**
+
+És la pàgina principal després d'iniciar sessió, adaptada segons el rol de l'usuari:
+
+- **Administrador**: pot veure i gestionar tots els aspectes del sistema.
+- **Recursos Humans**: pot veure fitxatges i estadístiques generals.
+- **Empleat**: té accés limitat només als seus propis registres.
+
+#### **Gestió d'Usuaris**
+
+Permet a l'administrador crear, modificar i eliminar usuaris. També pot assignar rols (Administrador, Recursos Humans, Empleat).
+
+#### **Gestió de Targetes RFID**
+
+Des d'aquesta secció es gestionen les targetes RFID:
+
+- Registrar noves targetes.
+- Assignar o revocar targetes a usuaris existents.
+- Escanejar targetes directament des de la interfície web mitjançant una execució remota a la Raspberry Pi.
+
+#### **Estadístiques**
+
+Ofereix gràfiques interactives que mostren estadístiques clau com:
+
+- Hores totals treballades mensualment.
+- Hores extra realitzades.
+- Percentatge d'assistència per dia de la setmana.
+- Rànquing de puntualitat dels empleats.
+
+Aquestes estadístiques estan generades dinàmicament amb Chart.js i alimentades mitjançant dades processades en PHP amb consultes SQL eficients.
+
+(FOTO AQUI: Captures d’estadístiques generades a la web)
+
+### Millores implementades
+
+- **Validació en temps real:** Ús de JavaScript per a la validació immediata dels formularis, millorant l'experiència d'usuari.
+- **Animacions i Estètica:** Millores visuals amb animacions CSS, efectes d'interacció i utilització de biblioteques com tsParticles per donar un toc modern.
+- **Eficiència i Rendiment:** Optimització del codi SQL, implementació d'índexs a la base de dades, i càrrega asincrònica de dades amb AJAX.
+- **Seguretat millorada:** Prevenció d’injeccions SQL utilitzant declaracions preparades amb MySQLi, sessions segures i protecció contra CSRF en formularis crítics.
+
+(FOTO AQUI: Exemple de millores estètiques a la interfície)
+
+### Funcionament tècnic de la comunicació amb la Raspberry Pi
+
+La comunicació entre l'aplicació web i la Raspberry Pi es realitza de manera segura via SSH:
+
+- **Execució remota d'scripts Python:** des de PHP, utilitzem la funció `shell_exec()` amb comandes SSH per executar scripts Python específics per llegir i registrar targetes RFID.
+
+Exemple d'execució des de PHP:
+
+```php
+$output = shell_exec('ssh raspberry "python3 /home/ira/leer_rfid.py"');
+```
+
+### Flux complet del procés
+
+1. **Registre d'entrada/sortida:**
+
+   - L'usuari escaneja la seva targeta RFID.
+   - La Raspberry Pi registra aquest esdeveniment executant `leer_rfid.py` i introdueix les dades a la base de dades remota.
+
+2. **Consulta de fitxatges:**
+
+   - Des de l'aplicació web, els usuaris amb permisos adients consulten els registres guardats.
+
+3. **Administració de targetes:**
+   - L'administrador pot registrar noves targetes RFID o associar-les a usuaris existents.
+
+## Futurs desenvolupaments
+
+Per futures iteracions, es consideren implementar les següents millores:
+
+- **Notificacions automàtiques:** per informar administradors o RRHH de certs esdeveniments.
+- **Integració mòbil:** desenvolupament d'una aplicació mòbil per facilitar encara més l'accés i gestió dels registres.
+- **Còpies de seguretat automatitzades:** de les dades generades per garantir-ne la seguretat.
+
+(FOTO AQUI: Exemple mockup aplicació mòbil futura)
+
+---
+
+Aquest projecte, per tant, combina hardware (Raspberry Pi), software personalitzat (scripts Python) i una interfície web moderna per aconseguir un sistema robust, segur i intuïtiu per al control d'assistència en entorns empresarials.
