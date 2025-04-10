@@ -16,7 +16,7 @@ Uneix-te a nosaltres mentre redefinim el futur de l'allotjament amb una experiè
 
 USOLUTIONS està liderada per un equip de tres CEOs excepcionals, cadascun aportant una experiència única:  
 
-- **Graduat en ASIX**: Un líder visionari amb una sòlida base en administració de sistemes i infraestructura IT.  
+- **Expert en Transformació Digital**: Un líder visionari amb experiència en implementar estratègies digitals innovadores per optimitzar processos empresarials i impulsar el creixement.  
 - **Especialista en Big Data**: Un expert en analítica de dades i gestió de dades a gran escala, impulsant la innovació a través de les dades.  
 - **Enginyer Avançat en Ciberseguretat**: Un brillant enginyer amb coneixements d'avantguarda en ciberseguretat, garantint el màxim nivell de protecció per a les nostres plataformes.  
 
