@@ -1,3 +1,32 @@
+## Taula de Continguts
+
+1. [Ús d'un Hipervisor i Proxmox](#ús-dun-hipervisor-i-proxmox)
+    - [Per què s'utilitza un hipervisor?](#per-què-sutilitza-un-hipervisor)
+    - [Què és Proxmox?](#què-és-proxmox)
+2. [Què és pfSense?](#què-és-pfsense)
+3. [Què és un servidor NAS?](#què-és-un-servidor-nas)
+    - [Avantatges d'un servidor NAS](#avantatges-dun-servidor-nas)
+4. [Què és TrueNAS?](#què-és-truenas)
+    - [Característiques principals de TrueNAS](#característiques-principals-de-truenas)
+5. [Què és una VPN i Tailscale?](#què-és-una-vpn-i-tailscale)
+    - [Avantatges d'una VPN](#avantatges-duna-vpn)
+    - [Què és Tailscale?](#què-és-tailscale)
+6. [Monitorització amb Zabbix i Netdata](#monitorització-amb-zabbix-i-netdata)
+    - [Què és Zabbix?](#què-és-zabbix)
+    - [Què és Netdata?](#què-és-netdata)
+7. [Alertes](#alertes)
+    - [Alertes amb Zabbix](#alertes-amb-zabbix)
+    - [Alertes amb Netdata](#alertes-amb-netdata)
+
+
+    ## Manuals Pràctics
+
+    1. [Com configurar Proxmox pas a pas](#com-configurar-proxmox-pas-a-pas)
+    2. [Instal·lació i configuració de pfSense](#instal·lació-i-configuració-de-pfsense)
+    3. [Com muntar un servidor NAS](#com-muntar-un-servidor-nas)
+    4. [Guia per instal·lar i configurar TrueNAS](#guia-per-instal·lar-i-configurar-truenas)
+
+
 # Ús d'un Hipervisor i Proxmox
 
 ## Per què s'utilitza un hipervisor?
