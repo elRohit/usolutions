@@ -31,7 +31,3 @@ La base de dades `usolutions_db` conté diverses taules i vistes per gestionar e
 - **`ticket_messages`**: Missatges associats als tiquets de suport.
 - **`users`**: Informació dels usuaris, incloent-hi el seu estat i dades de contacte.
 - **`user_servers`**: Relació entre els usuaris i els servidors adquirits.
-
-### Vista `server_view`
-
-La vista `server_view` proporciona una visió consolidada dels servidors, serveis, plans i contenidors associats. Inclou informació com el nom del servidor, estat, tipus de servei, sistema operatiu i configuracions.
