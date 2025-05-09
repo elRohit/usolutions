@@ -25,4 +25,4 @@ Les seves habilitats combinades i dedicació són la força impulsora darrere de
 
 ## Llicència  
 
-Aquest projecte està llicenciat sota la [Llicència MIT](LICENSE), garantint col·laboració i innovació obertes.
+Aquest projecte està llicenciat sota la Llicència MIT, garantint col·laboració i innovació obertes.
