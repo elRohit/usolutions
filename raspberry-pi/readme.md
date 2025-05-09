@@ -4,8 +4,6 @@
 
 Aquest projecte consisteix en desenvolupar un sistema complet per gestionar els fichatges dels treballadors utilitzant targetes RFID. L'objectiu principal és automatitzar i simplificar el control horari del personal d'una empresa, oferint una plataforma web intuïtiva per visualitzar i administrar totes les dades recollides.
 
-(FOTO AQUI: Imatge introductòria del sistema complet funcionant)
-
 ## Tecnologia Utilitzada
 
 - **Raspberry Pi:**
@@ -18,7 +16,6 @@ Aquest projecte consisteix en desenvolupar un sistema complet per gestionar els 
 - **Base de Dades:**
 
   - Sistema gestor: MariaDB
-  - Allotjament: bbdd.usolutions.cat
 
 - **Aplicació Web:**
   - Backend: PHP
@@ -51,8 +48,6 @@ Els passos realitzats han estat els següents:
    HostName 10.93.255.155
    User ira
    ```
-
-(FOTO AQUI: Configuració SSH a Raspberry Pi)
 
 ## Estructura del Sistema de Fichatges
 
@@ -104,8 +99,6 @@ Hem dissenyat una base de dades robusta que permet gestionar eficaçment les dad
 - `fecha_salida`: Data i hora de sortida
 - `tiempo_extra`: Temps extra calculat respecte a la jornada laboral estàndard (8 hores)
 
-(FOTO AQUI: Diagrama ER o captures de les taules de la base de dades)
-
 ---
 
 ## Aplicació Web
@@ -151,16 +144,12 @@ Ofereix gràfiques interactives que mostren estadístiques clau com:
 
 Aquestes estadístiques estan generades dinàmicament amb Chart.js i alimentades mitjançant dades processades en PHP amb consultes SQL eficients.
 
-(FOTO AQUI: Captures d’estadístiques generades a la web)
-
 ### Millores implementades
 
 - **Validació en temps real:** Ús de JavaScript per a la validació immediata dels formularis, millorant l'experiència d'usuari.
 - **Animacions i Estètica:** Millores visuals amb animacions CSS, efectes d'interacció i utilització de biblioteques com tsParticles per donar un toc modern.
 - **Eficiència i Rendiment:** Optimització del codi SQL, implementació d'índexs a la base de dades, i càrrega asincrònica de dades amb AJAX.
 - **Seguretat millorada:** Prevenció d’injeccions SQL utilitzant declaracions preparades amb MySQLi, sessions segures i protecció contra CSRF en formularis crítics.
-
-(FOTO AQUI: Exemple de millores estètiques a la interfície)
 
 ### Funcionament tècnic de la comunicació amb la Raspberry Pi
 
@@ -196,7 +185,6 @@ Per futures iteracions, es consideren implementar les següents millores:
 - **Integració mòbil:** desenvolupament d'una aplicació mòbil per facilitar encara més l'accés i gestió dels registres.
 - **Còpies de seguretat automatitzades:** de les dades generades per garantir-ne la seguretat.
 
-(FOTO AQUI: Exemple mockup aplicació mòbil futura)
 
 ---
 
