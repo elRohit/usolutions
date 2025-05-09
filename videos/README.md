@@ -10,7 +10,7 @@ En aquesta secció, explicarem amb detall el procés de desenvolupament i funcio
 
 | **Títol del Vídeo**                     | **Enllaç**                          |
 |-----------------------------------------|--------------------------------------|
-| Creació d'una màquina BASE              | [Veure vídeo](#)                     |
+| Creació d'una màquina BASE              | [Veure vídeo](https://drive.google.com/file/d/16xika7tG5y9YN7rljXsbJi358QotTshK/view?usp=sharing)                     |
 | Funcionament del Mòdul d'Autenticació   | [Veure vídeo](#)                     |
 | Integració del Sistema de Pagaments     | [Veure vídeo](#)                     |
 | Gestió d'Usuaris i Permisos             | [Veure vídeo](#)                     |
@@ -24,7 +24,7 @@ En aquesta secció, explicarem amb detall el procés de desenvolupament i funcio
 
 ## Creació d'una màquina BASE
 
-En aquest video es mostra la creació d'una maquina Virtual o Contenidor de Proxmox de forma manual i bàsica. També veurem d'on agafa els elements que necesita la màquina com per exemple la seva imatge, d'on agafa la seva configuració d'IP i finalment el seu emmagatzematge distribuït.
+En aquest video es mostra la creació d'una maquina Virtual o Contenidor de Proxmox de forma manual i bàsica. També veurem d'on agafa els elements que necesita la màquina com per exemple la seva imatge, d'on agafa la seva configuració d'IP i finalment el seu emmagatzematge distribuït. També veurem com configurar la alta disponibilitat i un exemple real apagant el servidor. 
 
 
 
