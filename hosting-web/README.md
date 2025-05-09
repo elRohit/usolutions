@@ -16,4 +16,4 @@ El directori `pagina-web` conté els diretoris i recursos necessaris per a la im
 
 ### Estructura de la Base de Dades
 
-La base de dades `usolutions_db` conté diverses taules i vistes per gestionar els serveis i configuracions del sistema. Pots veure aquesta base de dades en [Base de dades](hosting-web/base-de-dades/README.md)
+La base de dades `usolutions_db` conté diverses taules i vistes per gestionar els serveis i configuracions del sistema. Pots veure aquesta base de dades en [Base de dades](hosting-web/base-de-dades/)
