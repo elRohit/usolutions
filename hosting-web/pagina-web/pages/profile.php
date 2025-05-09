@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (empty($firstName) || empty($lastName)) {
             $error = "First name and last name are required.";
         } else {
-            $conn = getDbConnection();
+            $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
             
             $sql = "UPDATE users SET first_name = ?, last_name = ?, phone = ?, profile_image = ? WHERE id = ?";
             $stmt = $conn->prepare($sql);
