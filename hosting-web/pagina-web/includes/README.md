@@ -13,9 +13,6 @@ Fitxers PHP que es carreguen a diverses pàgines per evitar duplicar codi.
 - **functions.php**  
   Funcions reutilitzables (sanitització, validació, helpers…).
 
-- **nav.php**  
-  Menú de navegació, dinàmic segons l’usuari.
-
 ### Ús
 
 A cada pàgina PHP principal inclou:
