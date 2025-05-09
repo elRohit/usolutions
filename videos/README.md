@@ -16,4 +16,4 @@ En aquesta secció, explicarem amb detall el procés de desenvolupament i funcio
 | Creació d'una màquina amb la plana web (PrestaShop)             | [Veure vídeo](https://drive.google.com/file/d/1zFXW3EAalKXe6uDnvSNoIhAgHE4EuyvR/view?usp=drive_link)                     |
 | Creació d'una màquina amb la plana web (Unmanaged)             | [Veure vídeo](https://drive.google.com/file/d/1cPXQu4xy0mISpvkJk1j6UmskrqV81ywt/view?usp=drive_link)                     |
 | Demostració d'Alertes en Zabbix i Support amb GLPi     | [Veure vídeo](https://drive.google.com/file/d/1IybZCCfoFL9NwDB0UUtuvEC2l0jAX42y/view?usp=sharing)                    |
-| Gestio d'Entrada i Sortida de l'empleat           |        [Veure vídeo](raspberry-pi/video/)                                |
+| Gestio d'Entrada i Sortida de l'empleat           |        [Veure vídeo](../raspberry-pi/video/)                                |
