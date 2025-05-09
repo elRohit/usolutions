@@ -27,14 +27,3 @@ Aquí hi són totes les pàgines accessibles per l’usuari.
 
 - **servers-*.php**  
   Pàgines relacionades amb configuració, pagaments i creació de servidors.
-
-## Com afegir una nova pàgina
-
-1. Crea `pages/nou-nom.php`.  
-2. Al començament:
-
-    ```:php
-   require_once __DIR__ . '/../includes/config.php';
-   include __DIR__ . '/../includes/header.php';
-   include __DIR__ . '/../includes/footer.php';
-
