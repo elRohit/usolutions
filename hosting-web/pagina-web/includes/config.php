@@ -1,15 +1,15 @@
 <?php
-// Database configuration
+// Configuració de la base de dades
 define('DB_HOST', 'localhost');
 define('DB_USER', 'usolutions_admin');
 define('DB_PASS', 'P@ssw0rd');
 define('DB_NAME', 'usolutions_db');
 
-// Site configuration
+// Configuració de la pàgina web
 define('SITE_NAME', 'USOLUTIONS');
 define('SITE_URL', 'http://localhost/');
 
-// Services configuration (used in home.php)
+// Configuració de la plantilla
 define('SERVICES', [
     'web-hosting' => [
         'name' => 'Web Hosting',
@@ -28,10 +28,10 @@ define('SERVICES', [
     ]
 ]);
 
-// Initialize database connection
+// Configuració de la plantilla
 $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
-// Check connection
+// Comprovar connexió
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }

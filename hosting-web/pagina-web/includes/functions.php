@@ -2,7 +2,6 @@
 session_start();
 require_once 'config.php';
 
-// User authentication functions
 function isLoggedIn() {
     return isset($_SESSION['user_id']);
 }
@@ -56,7 +55,6 @@ function register($firstName, $lastName, $email, $password) {
     return false;
 }
 
-// Server management functions
 function getUserServers($userId) {
     global $conn;
     
@@ -110,7 +108,6 @@ function getServerBackups($serverId, $userId) {
     return $backups;
 }
 
-// Billing functions
 function getUserInvoices($userId) {
     global $conn;
     
@@ -175,7 +172,6 @@ function getInvoiceDetails($invoiceId, $userId) {
     return null;
 }
 
-// Support ticket functions
 function getUserTickets($userId) {
     global $conn;
     
@@ -265,7 +261,6 @@ function replyToTicket($ticketId, $userId, $message, $isAdmin = 0) {
     $message = $conn->real_escape_string($message);
     $isAdmin = (int)$isAdmin;
     
-    // Verify ticket belongs to user
     $checkQuery = "SELECT id FROM support_tickets WHERE id = $ticketId AND user_id = $userId";
     $checkResult = $conn->query($checkQuery);
     
@@ -277,7 +272,6 @@ function replyToTicket($ticketId, $userId, $message, $isAdmin = 0) {
               VALUES ($ticketId, '$message', $isAdmin, NOW())";
     
     if ($conn->query($query)) {
-        // Update ticket status
         $updateQuery = "UPDATE support_tickets SET status = 'customer_reply' WHERE id = $ticketId";
         if ($isAdmin) {
             $updateQuery = "UPDATE support_tickets SET status = 'answered' WHERE id = $ticketId";
@@ -290,7 +284,6 @@ function replyToTicket($ticketId, $userId, $message, $isAdmin = 0) {
     return false;
 }
 
-// User profile functions
 function getUserProfile($userId) {
     global $conn;
     
@@ -336,7 +329,6 @@ function updateUserPassword($userId, $currentPassword, $newPassword) {
     
     $userId = (int)$userId;
     
-    // Verify current password
     $query = "SELECT password FROM users WHERE id = $userId";
     $result = $conn->query($query);
     
@@ -352,7 +344,6 @@ function updateUserPassword($userId, $currentPassword, $newPassword) {
     return false;
 }
 
-// Helper functions
 function formatDate($date) {
     return date('F j, Y', strtotime($date));
 }

@@ -1,7 +1,6 @@
 <?php
 require_once 'functions.php';
 
-// Get current page name
 $current_page = basename($_SERVER['PHP_SELF'], '.php');
 ?>
 <!DOCTYPE html>
@@ -12,7 +11,6 @@ $current_page = basename($_SERVER['PHP_SELF'], '.php');
     <title><?php echo isset($pageTitle) ? $pageTitle . ' - ' . SITE_NAME : SITE_NAME; ?></title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/style.css">
-    <!-- Page specific CSS -->
     <link rel="stylesheet" href="../assets/css/pages/<?php echo $current_page; ?>.css">
 </head>
 <body>
