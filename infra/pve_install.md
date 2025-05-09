@@ -1,8 +1,8 @@
 # Introducción a Proxmox
+
 Proxmox VE es una excelente opción para empresas de hosting debido a su capacidad para gestionar múltiples máquinas virtuales y contenedores de manera eficiente. Su soporte para alta disponibilidad garantiza que los servicios críticos permanezcan operativos incluso en caso de fallos de hardware. Además, las herramientas integradas de copias de seguridad y recuperación permiten proteger los datos de los clientes de manera confiable.
 
 La interfaz web intuitiva de Proxmox facilita la administración centralizada, lo que reduce la complejidad operativa y mejora la productividad del equipo técnico. Al ser una solución de código abierto, también permite a las empresas de hosting reducir costos de licencias y personalizar la plataforma según sus necesidades específicas, ofreciendo así un servicio más competitivo y adaptado a sus clientes.
-
 
 ## Resum de configuració
 
@@ -98,7 +98,7 @@ Després de muntar el pfsense, ens faltarà la instal·lació i configuració de
 
 ## Instal·lació i configuració de Proxmox
 
-El primer que haurem de fer es crear la màquina virtual i configurar-la correctament. Començarem seleccionat el tipus (un Debian) i li assignarem 8GB de RAM. 
+El primer que haurem de fer es crear la màquina virtual i configurar-la correctament. Començarem seleccionat el tipus (un Debian) i li assignarem 8GB de RAM.
 
 ![alt text](../img/pve/1.png)
 
@@ -106,7 +106,7 @@ El primer que haurem de fer es crear la màquina virtual i configurar-la correct
 
 ![alt text](../img/pve/3.png)
 
-Seguidament determinarem l’espai del disc dur, en aquest cas hem decidit assignar-li un disc de 200GB 
+Seguidament determinarem l’espai del disc dur, en aquest cas hem decidit assignar-li un disc de 200GB
 
 ![alt text](../img/pve/4.png)
 
