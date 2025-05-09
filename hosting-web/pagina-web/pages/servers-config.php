@@ -3,11 +3,9 @@ $pageTitle = "Configure Your Server";
 require_once '../includes/header.php';
 requireLogin();
 
-// Get service and plan IDs from URL
 $serviceId = isset($_GET['service']) ? (int)$_GET['service'] : 0;
 $planId = isset($_GET['plan']) ? (int)$_GET['plan'] : 0;
 
-// Validate service and plan
 global $conn;
 $serviceQuery = "SELECT * FROM services WHERE id = $serviceId AND is_active = 1";
 $serviceResult = $conn->query($serviceQuery);
@@ -16,7 +14,6 @@ $planQuery = "SELECT * FROM server_plans WHERE id = $planId AND is_active = 1";
 $planResult = $conn->query($planQuery);
 
 if ($serviceResult->num_rows === 0 || $planResult->num_rows === 0) {
-    // Invalid service or plan
     echo '<div class="container error-container"><p>Invalid service or plan selected. <a href="servers.php">Go back to servers</a></p></div>';
     include_once '../includes/footer.php';
     exit;
@@ -25,34 +22,28 @@ if ($serviceResult->num_rows === 0 || $planResult->num_rows === 0) {
 $service = $serviceResult->fetch_assoc();
 $plan = $planResult->fetch_assoc();
 
-// Check if form was submitted
 $formSubmitted = isset($_POST['submit']);
 $errors = [];
 
 if ($formSubmitted) {
-    // Process form submission
     if ($service['type'] === 'unmanaged') {
-        // Validate unmanaged server form
         $hostname = isset($_POST['hostname']) ? trim($_POST['hostname']) : '';
         $username = isset($_POST['username']) ? trim($_POST['username']) : '';
         $password = isset($_POST['password']) ? $_POST['password'] : '';
         $confirmPassword = isset($_POST['confirm_password']) ? $_POST['confirm_password'] : '';
         
-        // Validate hostname
         if (empty($hostname)) {
             $errors[] = 'Hostname is required';
         } elseif (!preg_match('/^[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?$/', $hostname)) {
             $errors[] = 'Hostname must contain only lowercase letters, numbers, and hyphens, and cannot start or end with a hyphen';
         }
         
-        // Validate username
         if (empty($username)) {
             $errors[] = 'Username is required';
         } elseif (!preg_match('/^[a-z_]([a-z0-9_-]{0,31})$/', $username)) {
             $errors[] = 'Username must start with a letter or underscore, and contain only lowercase letters, numbers, underscores, and hyphens';
         }
         
-        // Validate password
         if (empty($password)) {
             $errors[] = 'Password is required';
         } elseif (strlen($password) < 8) {
@@ -62,7 +53,6 @@ if ($formSubmitted) {
         }
         
         if (empty($errors)) {
-            // Store configuration in session for payment page
             $_SESSION['server_config'] = [
                 'service_id' => $serviceId,
                 'plan_id' => $planId,
@@ -71,28 +61,23 @@ if ($formSubmitted) {
                 'password' => $password
             ];
             
-            // Redirect to payment page
             header('Location: servers-payment.php');
             exit;
         }
     } else {
-        // For managed servers, just store service and plan IDs and redirect to payment
         $_SESSION['server_config'] = [
             'service_id' => $serviceId,
             'plan_id' => $planId
         ];
         
-        // Redirect to payment page
         header('Location: servers-payment.php');
         exit;
     }
 }
 
-// Calculate total price
 $totalPrice = $service['base_price'] * $plan['price_multiplier'];
 ?>
 
-<!-- Add Font Awesome for icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 <section class="page-header">
@@ -207,7 +192,6 @@ $totalPrice = $service['base_price'] * $plan['price_multiplier'];
     </div>
 </section>
 
-<!-- Include page-specific JavaScript -->
 <script src="../assets/js/pages/servers-config.js"></script>
 
 <?php include_once '../includes/footer.php'; ?>

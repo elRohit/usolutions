@@ -1,5 +1,5 @@
 <?php
-// Main entry point - redirects to home page
+// Redireccionar a la pàgina d'inici
 header("Location: /pages/home.php");
 exit;
 

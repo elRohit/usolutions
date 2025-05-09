@@ -3,7 +3,6 @@ $pageTitle = "Creating Your Server";
 require_once '../includes/header.php';
 session_start();
 
-// Verificar si la configuración del servidor está en la sesión
 if (!isset($_SESSION['server_config']) || empty($_SESSION['server_config'])) {
     echo '<div class="container error-container"><p>No server configuration found. <a href="servers-config.php">Go back to configuration</a></p></div>';
     include_once '../includes/footer.php';
@@ -13,11 +12,8 @@ if (!isset($_SESSION['server_config']) || empty($_SESSION['server_config'])) {
 $config = $_SESSION['server_config'];
 ?>
 
-<!-- Main Content -->
 <style>
-/* Server Creation Page Styles */
 
-/* Using the site's CSS variables for consistency */
 :root {
     --primary-color: #0066cc;
     --primary-dark: #0056b3;
@@ -49,7 +45,6 @@ $config = $_SESSION['server_config'];
     --line-height: 1.6;
   }
   
-  /* Page Header */
   .page-header {
     background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
     color: #fff;
@@ -88,7 +83,6 @@ $config = $_SESSION['server_config'];
     opacity: 0;
   }
   
-  /* Success and Error Containers */
   .success-container,
   .error-container {
     max-width: 800px;
@@ -205,7 +199,6 @@ $config = $_SESSION['server_config'];
     box-shadow: 0 4px 8px rgba(0, 102, 204, 0.4);
   }
   
-  /* Loading Container */
   .loading-container {
     max-width: 800px;
     margin: 4rem auto;
@@ -254,7 +247,6 @@ $config = $_SESSION['server_config'];
     margin-right: auto;
   }
   
-  /* Loading Spinner */
   .loading-spinner {
     display: inline-block;
     width: 60px;
@@ -272,7 +264,6 @@ $config = $_SESSION['server_config'];
     }
   }
   
-  /* Loading Bar */
   .loading-bar-container {
     height: 20px;
     background-color: var(--light-color);
@@ -326,7 +317,6 @@ $config = $_SESSION['server_config'];
     border: 1px solid var(--border-color);
   }
   
-  /* Loading Steps */
   .loading-steps {
     text-align: left;
     max-width: 600px;
@@ -349,7 +339,6 @@ $config = $_SESSION['server_config'];
     border-bottom: 1px solid var(--border-color);
   }
   
-  /* Creation Steps */
   .creation-steps {
     max-width: 600px;
     margin: 2rem auto;
@@ -433,7 +422,6 @@ $config = $_SESSION['server_config'];
     line-height: var(--line-height);
   }
   
-  /* Redirect Message */
   .redirect-message {
     margin-top: 2.5rem;
     padding: 1rem;
@@ -450,7 +438,6 @@ $config = $_SESSION['server_config'];
     font-size: 1.25rem;
   }
   
-  /* Success Container Enhancements */
   .success-header {
     margin-bottom: 2rem;
   }
@@ -540,7 +527,6 @@ $config = $_SESSION['server_config'];
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   }
   
-  /* Animations */
   @keyframes fadeInDown {
     from {
       opacity: 0;
@@ -563,7 +549,6 @@ $config = $_SESSION['server_config'];
     }
   }
   
-  /* Responsive Styles */
   @media (max-width: 992px) {
     .page-header h1 {
       font-size: 2.5rem;
@@ -671,7 +656,6 @@ $config = $_SESSION['server_config'];
 
 <?php
 include_once '../includes/footer.php';
-// Flush output buffer to show the loading bar immediately
 ob_flush();
 flush();
 
@@ -807,13 +791,11 @@ EOT;
     $contenedor_ip = trim(shell_exec($comanda_ip));
 
     if (strpos($output2, 'Apply complete! Resources: 1 added, 0 changed, 0 destroyed.') !== false) {
-        // Add database operations here
         global $conn;
         $userId = $_SESSION['user_id'];
         $serviceId = $config['service_id'];
         $planId = $config['plan_id'];
         
-        // Get service and plan details
         $serviceQuery = "SELECT * FROM services WHERE id = $serviceId AND is_active = 1";
         $serviceResult = $conn->query($serviceQuery);
         $service = $serviceResult->fetch_assoc();
@@ -822,10 +804,8 @@ EOT;
         $planResult = $conn->query($planQuery);
         $plan = $planResult->fetch_assoc();
         
-        // Calculate total price
         $totalPrice = $service['base_price'] * $plan['price_multiplier'];
         
-        // Insert server record into database
         $insertServerQuery = "INSERT INTO user_servers (
             user_id, 
             service_id, 
@@ -864,7 +844,6 @@ EOT;
     $size = $config['storage_gb'];
     global $conn;
 
-    // Get the managed app type
     $managedApp = '';
     if ($service == 'WordPress Managed Hosting') {
         $managedApp = 'wordpress';
@@ -872,24 +851,20 @@ EOT;
         $managedApp = 'prestashop';
     }
 
-     // Get current count from count_administrative table
     $countQuery = "SELECT count FROM count_administrative WHERE service_type = '$managedApp'";
     $countResult = $conn->query($countQuery);
     
     if ($countResult->num_rows === 0) {
-        // If no record exists, create one
         $conn->query("INSERT INTO count_administrative (service_type, count) VALUES ('$managedApp', 1)");
         $currentCount = 1;
     } else {
         $countRow = $countResult->fetch_assoc();
         $currentCount = $countRow['count'] + 1;
         
-        // Update count in database
         $updateCountQuery = "UPDATE count_administrative SET count = $currentCount WHERE service_type = '$managedApp'";
         $conn->query($updateCountQuery);
     }
 
-    // Create hostname based on app and count
     $hostname = $managedApp . '-' . $currentCount;
 
     if ($service == 'WordPress Managed Hosting') {
@@ -1022,13 +997,11 @@ EOT;
         $output = shell_exec($comanda_cleanup . " 2>&1");
 
         if (strpos($output2, 'Apply complete! Resources: 1 added, 0 changed, 0 destroyed.') !== false) {
-            // Add database operations here
             global $conn;
             $userId = $_SESSION['user_id'];
             $serviceId = $config['service_id'];
             $planId = $config['plan_id'];
             
-            // Get service and plan details
             $serviceQuery = "SELECT * FROM services WHERE id = $serviceId AND is_active = 1";
             $serviceResult = $conn->query($serviceQuery);
             $service = $serviceResult->fetch_assoc();
@@ -1037,10 +1010,8 @@ EOT;
             $planResult = $conn->query($planQuery);
             $plan = $planResult->fetch_assoc();
             
-            // Calculate total price
             $totalPrice = $service['base_price'] * $plan['price_multiplier'];
             
-            // Insert server record into database
             $insertServerQuery = "INSERT INTO user_servers (
                 user_id, 
                 service_id, 
@@ -1203,13 +1174,11 @@ EOT;
         $output = shell_exec($comanda_cleanup . " 2>&1");
 
         if (strpos($output2, 'Apply complete! Resources: 1 added, 0 changed, 0 destroyed.') !== false) {
-            // Add database operations here
             global $conn;
             $userId = $_SESSION['user_id'];
             $serviceId = $config['service_id'];
             $planId = $config['plan_id'];
             
-            // Get service and plan details
             $serviceQuery = "SELECT * FROM services WHERE id = $serviceId AND is_active = 1";
             $serviceResult = $conn->query($serviceQuery);
             $service = $serviceResult->fetch_assoc();
@@ -1218,10 +1187,8 @@ EOT;
             $planResult = $conn->query($planQuery);
             $plan = $planResult->fetch_assoc();
             
-            // Calculate total price
             $totalPrice = $service['base_price'] * $plan['price_multiplier'];
             
-            // Insert server record into database
             $insertServerQuery = "INSERT INTO user_servers (
                 user_id, 
                 service_id, 
@@ -1258,7 +1225,6 @@ EOT;
     echo '<div class="container error-container"><p>Invalid server form type.</p></div>';
 
 }
-// Clear server configuration from session
 unset($_SESSION['server_config']);
 ?>
 <script>               

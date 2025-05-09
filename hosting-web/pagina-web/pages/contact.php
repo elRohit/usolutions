@@ -6,7 +6,6 @@ $success = false;
 $error = false;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Process contact form
     $name = isset($_POST['name']) ? trim($_POST['name']) : '';
     $email = isset($_POST['email']) ? trim($_POST['email']) : '';
     $subject = isset($_POST['subject']) ? trim($_POST['subject']) : '';

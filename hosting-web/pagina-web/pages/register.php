@@ -2,7 +2,6 @@
 $pageTitle = "Register";
 include_once '../includes/header.php';
 
-// Redirect if already logged in
 if (isLoggedIn()) {
     header("Location: dashboard.php");
     exit;
@@ -27,7 +26,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } elseif (strlen($password) < 8) {
         $error = "Password must be at least 8 characters long.";
     } else {
-        // Check if email already exists
         global $conn;
         $checkEmail = $conn->prepare("SELECT id FROM users WHERE email = ?");
         $checkEmail->bind_param("s", $email);
@@ -37,15 +35,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($result->num_rows > 0) {
             $error = "Email address is already registered.";
         } else {
-            // Register the user
             $userId = register($firstName, $lastName, $email, $password);
             
             if ($userId) {
-                // Auto login
                 $_SESSION['user_id'] = $userId;
                 $_SESSION['user_name'] = $firstName . ' ' . $lastName;
                 
-                // Redirect to dashboard
                 header("Location: dashboard.php");
                 exit;
             } else {

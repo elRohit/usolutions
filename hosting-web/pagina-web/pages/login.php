@@ -2,7 +2,6 @@
 $pageTitle = "Login";
 include_once '../includes/header.php';
 
-// Redirect if already logged in
 if (isLoggedIn()) {
     header("Location: dashboard.php");
     exit;
@@ -18,7 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = "Please enter both email and password.";
     } else {
         if (login($email, $password)) {
-            // Redirect to dashboard or requested page
             $redirect = isset($_GET['redirect']) ? $_GET['redirect'] : 'dashboard.php';
             header("Location: " . $redirect);
             exit;

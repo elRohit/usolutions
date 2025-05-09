@@ -2,18 +2,15 @@
 $pageTitle = "Ticket Details";
 include_once '../includes/header.php';
 
-// Require login
 requireLogin();
 
 $userId = $_SESSION['user_id'];
 $ticketId = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 $created = isset($_GET['created']) ? true : false;
 
-// Get ticket details
 $ticket = getTicketDetails($ticketId, $userId);
 
 if (!$ticket) {
-    // Ticket not found or doesn't belong to user
     header("Location: dashboard.php#tickets");
     exit;
 }
@@ -31,7 +28,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         if ($replyId) {
             $success = "Reply sent successfully.";
-            // Refresh ticket data
             $ticket = getTicketDetails($ticketId, $userId);
         } else {
             $error = "Failed to send reply. Please try again.";

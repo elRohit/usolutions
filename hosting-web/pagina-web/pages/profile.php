@@ -2,10 +2,8 @@
 $pageTitle = "Account Settings";
 include_once '../includes/header.php';
 
-// Require login
 requireLogin();
 
-// Get user data
 $userId = $_SESSION['user_id'];
 $user = getUserProfile($userId);
 
@@ -16,7 +14,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $action = isset($_POST['action']) ? $_POST['action'] : '';
     
     if ($action === 'update_profile') {
-        // Update profile information
         $firstName = isset($_POST['first_name']) ? trim($_POST['first_name']) : '';
         $lastName = isset($_POST['last_name']) ? trim($_POST['last_name']) : '';
         $phone = isset($_POST['phone']) ? trim($_POST['phone']) : '';
@@ -25,22 +22,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (empty($firstName) || empty($lastName)) {
             $error = "First name and last name are required.";
         } else {
-            // Connect to database
             $conn = getDbConnection();
             
-            // Prepare SQL statement
             $sql = "UPDATE users SET first_name = ?, last_name = ?, phone = ?, profile_image = ? WHERE id = ?";
             $stmt = $conn->prepare($sql);
             
             if ($stmt) {
-                // Bind parameters and execute
                 $stmt->bind_param("ssssi", $firstName, $lastName, $phone, $profileImage, $userId);
                 
                 if ($stmt->execute()) {
                     $success = "Profile updated successfully.";
-                    // Update session name
                     $_SESSION['user_name'] = $firstName . ' ' . $lastName;
-                    // Refresh user data
                     $user = getUserProfile($userId);
                 } else {
                     $error = "Failed to update profile: " . $conn->error;
@@ -54,7 +46,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $conn->close();
         }
     } elseif ($action === 'change_password') {
-        // Change password
         $currentPassword = isset($_POST['current_password']) ? $_POST['current_password'] : '';
         $newPassword = isset($_POST['new_password']) ? $_POST['new_password'] : '';
         $confirmPassword = isset($_POST['confirm_password']) ? $_POST['confirm_password'] : '';

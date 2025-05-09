@@ -2,7 +2,6 @@
 $pageTitle = "Create Support Ticket";
 include_once '../includes/header.php';
 
-// Require login
 requireLogin();
 
 $userId = $_SESSION['user_id'];
@@ -20,7 +19,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $ticketId = createTicket($userId, $subject, $message, $priority);
         
         if ($ticketId) {
-            // Redirect to ticket details
             header("Location: ticket-details.php?id=" . $ticketId . "&created=1");
             exit;
         } else {

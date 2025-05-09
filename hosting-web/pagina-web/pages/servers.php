@@ -2,10 +2,8 @@
 $pageTitle = "Our Servers";
 include_once '../includes/header.php';
 
-// Get server type from URL parameter
 $serverType = isset($_GET['type']) ? $_GET['type'] : 'all';
 
-// Get services from database
 global $conn;
 $query = "SELECT * FROM services WHERE is_active = 1";
 
@@ -24,7 +22,6 @@ if ($result->num_rows > 0) {
     }
 }
 
-// Get server plans
 $plansQuery = "SELECT * FROM server_plans WHERE is_active = 1 ORDER BY price_multiplier ASC";
 $plansResult = $conn->query($plansQuery);
 $plans = [];

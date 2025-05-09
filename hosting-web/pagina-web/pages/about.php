@@ -14,7 +14,7 @@ include_once '../includes/header.php';
     <div class="container">
         <div class="about-grid">
             <div class="about-text">
-                <h2>Our Story</h2>
+                <h2></section>Our Story</h2>
                 <p>USOLUTIONS was founded in 2025 with a simple mission: to provide reliable, secure, and affordable hosting solutions for businesses of all sizes. What started as a small team of passionate tech enthusiasts has grown into a trusted hosting provider serving thousands of clients worldwide.</p>
                 
                 <p>Our journey began when our founders recognized a gap in the market for hosting services that combined technical excellence with exceptional customer support. They believed that hosting shouldn't just be about server space—it should be about creating partnerships with clients and helping them succeed online.</p>
@@ -30,7 +30,7 @@ include_once '../includes/header.php';
                 </ul>
                 
                 <h2>Our Team</h2>
-                <p>Our team consists of experienced professionals who are passionate about technology and customer service. From our system administrators to our support specialists, everyone at USOLUTIONS is committed to providing the best possible experience for our clients.</p>
+              </section>  <p>Our team consists of ex</div>perienced professionals who are passionate about technology and customer service. From our system administrators to our support specialists, everyone at USOLUTIONS is committed to providing the best possible experience for our clients.</p>
             </div>
             <div class="about-image">
                 <img src="../assets/images/about-us.jpg" alt="USOLUTIONS Team">
@@ -43,7 +43,7 @@ include_once '../includes/header.php';
     <div class="container">
         <h2 class="section-title">Our Core Values</h2>
         <div class="values-grid">
-            <div class="value-card">
+          </div>  <div class="value-card">
                 <div class="value-icon">
                     <i class="fas fa-handshake"></i>
                 </div>
@@ -76,7 +76,7 @@ include_once '../includes/header.php';
 </section>
 
 <section class="team">
-    <div class="container">
+    <div class="container"></div>
         <h2 class="section-title">Leadership Team</h2>
         <div class="team-grid">
             <div class="team-member">

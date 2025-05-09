@@ -3,16 +3,13 @@ $pageTitle = "Payment";
 require_once '../includes/header.php';
 requireLogin();
 
-// Check if server configuration exists in session
 if (!isset($_SESSION['server_config']) || empty($_SESSION['server_config'])) {
-    // Redirect to servers page if no configuration found
     header('Location: servers.php');
     exit;
 }
 
 $config = $_SESSION['server_config'];
 
-// Get service and plan details
 global $conn;
 $serviceId = $config['service_id'];
 $planId = $config['plan_id'];
@@ -25,7 +22,6 @@ $planQuery = "SELECT * FROM server_plans WHERE id = $planId AND is_active = 1";
 $planResult = $conn->query($planQuery);
 
 if ($serviceResult->num_rows === 0 || $planResult->num_rows === 0) {
-    // Invalid service or plan
     echo '<div class="container error-container"><p>Invalid service or plan selected. <a href="servers.php">Go back to servers</a></p></div>';
     include_once '../includes/footer.php';
     exit;
@@ -34,15 +30,12 @@ if ($serviceResult->num_rows === 0 || $planResult->num_rows === 0) {
 $service = $serviceResult->fetch_assoc();
 $plan = $planResult->fetch_assoc();
 
-// Calculate total price
 $totalPrice = $service['base_price'] * $plan['price_multiplier'];
 
-// Check if form was submitted
 $formSubmitted = isset($_POST['submit']);
 $errors = [];
 
 if ($formSubmitted) {
-    // Validate payment method
     $paymentMethod = isset($_POST['payment_method']) ? $_POST['payment_method'] : '';
     
     if (empty($paymentMethod)) {
@@ -51,21 +44,15 @@ if ($formSubmitted) {
         $errors[] = 'Invalid payment method selected';
     }
     
-    // Process payment (in a real environment, this would connect to a payment gateway)
     if (empty($errors)) {
-        // Store payment method in session
         $_SESSION['server_config']['payment_method'] = $paymentMethod;
         
-        // For testing purposes, PayPal is "free" (no actual payment processing)
         if ($paymentMethod === 'paypal') {
             $_SESSION['server_config']['payment_status'] = 'completed';
         } else {
-            // In a real environment, this would process the payment
-            // For now, we'll just simulate a successful payment
             $_SESSION['server_config']['payment_status'] = 'completed';
         }
         
-        // Redirect to server creation script
         header('Location: /pages/servers-creation.php');
         exit;
     }
@@ -120,7 +107,6 @@ if ($formSubmitted) {
                         <span class="summary-value"><?php echo $plan['bandwidth_tb']; ?> TB</span>
                     </div>
                     <?php
-                    // Add these variables to the session
                     $_SESSION['server_config']['service'] = $service['name'];
                     $_SESSION['server_config']['type'] = $service['type'];
                     $_SESSION['server_config']['cpu_cores'] = $plan['cpu_cores'];

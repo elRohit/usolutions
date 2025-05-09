@@ -2,35 +2,27 @@
 $pageTitle = "Dashboard";
 include_once '../includes/header.php';
 
-// Require login
 requireLogin();
 
-// Get user data
 $userId = $_SESSION['user_id'];
 $user = getUserProfile($userId);
 
-// Get user servers
 $servers = getUserServers($userId);
 
-// Get user invoices
 $invoices = getUserInvoices($userId);
 
-// Get user tickets
 $tickets = getUserTickets($userId);
 ?>
 
 <section class="dashboard">
    <div class="dashboard-container">
-       <!-- Dashboard Welcome Section -->
        <div class="dashboard-welcome">
            <h1>Welcome, <?php echo $user['first_name']; ?>!</h1>
            <p>Manage your servers from your personal dashboard.</p>
            <div class="dashboard-date"></div>
        </div>
        
-       <!-- Dashboard Layout -->
        <div class="dashboard-layout">
-           <!-- Sidebar Menu -->
            <div class="dashboard-menu">
                <div class="user-profile">
                    <div class="user-profile-info">
@@ -60,9 +52,7 @@ $tickets = getUserTickets($userId);
                </ul>
            </div>
            
-           <!-- Main Content -->
            <div class="dashboard-main">
-               <!-- Stats Overview -->
                <div class="dashboard-section" id="overview">
                    <div class="stats-grid">
                        <div class="stat-card">
@@ -93,7 +83,6 @@ $tickets = getUserTickets($userId);
                    </div>
                </div>
                
-               <!-- Servers Section -->
                <div class="dashboard-section" id="servers">
                    <div class="content-panel">
                        <div class="panel-header">
@@ -292,7 +281,6 @@ $tickets = getUserTickets($userId);
             button.addEventListener('click', function() {
                 const password = this.getAttribute('data-password');
                 
-                // Create a temporary textarea element to copy from
                 const textarea = document.createElement('textarea');
                 textarea.value = password;
                 textarea.setAttribute('readonly', '');
@@ -300,17 +288,13 @@ $tickets = getUserTickets($userId);
                 textarea.style.left = '-9999px';
                 document.body.appendChild(textarea);
                 
-                // Select and copy the text
                 textarea.select();
                 document.execCommand('copy');
                 
-                // Remove the textarea
                 document.body.removeChild(textarea);
                 
-                // Show success message
                 copySuccess.style.display = 'block';
                 
-                // Hide success message after delay
                 setTimeout(() => {
                     copySuccess.style.display = 'none';
                 }, 2000);

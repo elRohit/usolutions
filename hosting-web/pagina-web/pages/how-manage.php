@@ -2,10 +2,8 @@
 $pageTitle = "How to Manage Your Server";
 include_once '../includes/header.php';
 
-// Require login
 requireLogin();
 
-// Get hostname from URL parameter
 $hostname = isset($_GET['hostname']) ? htmlspecialchars($_GET['hostname']) : 'your-server-ip';
 ?>
 
@@ -63,7 +61,6 @@ $hostname = isset($_GET['hostname']) ? htmlspecialchars($_GET['hostname']) : 'yo
             </ul>
 
             <div class="tab-content">
-                <!-- Windows Tab -->
                 <div class="tab-pane active" id="windows">
                     <h3>Connecting from Windows</h3>
                     
@@ -122,7 +119,6 @@ $hostname = isset($_GET['hostname']) ? htmlspecialchars($_GET['hostname']) : 'yo
                     </div>
                 </div>
 
-                <!-- macOS Tab -->
                 <div class="tab-pane" id="macos">
                     <h3>Connecting from macOS</h3>
                     
@@ -161,7 +157,6 @@ ssh-copy-id [user_created]@<?php echo $hostname; ?></code></pre>
                     </div>
                 </div>
 
-                <!-- Linux Tab -->
                 <div class="tab-pane" id="linux">
                     <h3>Connecting from Linux</h3>
                     
@@ -199,7 +194,6 @@ ssh-copy-id [user_created]@<?php echo $hostname; ?></code></pre>
                     </div>
                 </div>
 
-                <!-- Web-based Tab -->
                 <div class="tab-pane" id="web">
                     <h3>Web-based SSH Clients</h3>
                     
@@ -243,7 +237,6 @@ ssh-copy-id [user_created]@<?php echo $hostname; ?></code></pre>
                     </div>
                 </div>
 
-                <!-- Mobile Tab -->
                 <div class="tab-pane" id="mobile">
                     <h3>Connecting from Mobile Devices</h3>
                     
@@ -395,33 +388,27 @@ ssh-copy-id [user_created]@<?php echo $hostname; ?></code></pre>
 </section>
 
 <script>
-// Tab switching functionality
 document.addEventListener('DOMContentLoaded', function() {
     const tabItems = document.querySelectorAll('.tab-item');
     const tabPanes = document.querySelectorAll('.tab-pane');
     
     tabItems.forEach(item => {
         item.addEventListener('click', function() {
-            // Remove active class from all tabs
             tabItems.forEach(tab => tab.classList.remove('active'));
             tabPanes.forEach(pane => pane.classList.remove('active'));
             
-            // Add active class to clicked tab
             this.classList.add('active');
             
-            // Show corresponding tab content
             const tabId = this.getAttribute('data-tab');
             document.getElementById(tabId).classList.add('active');
         });
     });
     
-    // Copy to clipboard functions
     window.copyToClipboard = function(elementId) {
         const element = document.getElementById(elementId);
         const text = element.textContent;
         
         navigator.clipboard.writeText(text).then(() => {
-            // Show success feedback
             const button = event.currentTarget;
             const originalHTML = button.innerHTML;
             
@@ -437,7 +424,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     window.copyCommandToClipboard = function(command) {
         navigator.clipboard.writeText(command).then(() => {
-            // Show success feedback
             const button = event.currentTarget;
             const originalHTML = button.innerHTML;
             
@@ -454,7 +440,6 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <style>
-/* How to Manage Page Styles */
 .how-manage-page {
     padding: 2rem 0;
     background-color: var(--body-bg);
@@ -477,7 +462,6 @@ document.addEventListener('DOMContentLoaded', function() {
     color: var(--secondary-color);
 }
 
-/* Server Info Card */
 .server-info-card {
     background-color: #fff;
     border-radius: var(--border-radius-lg);
@@ -535,7 +519,6 @@ document.addEventListener('DOMContentLoaded', function() {
     border-radius: var(--border-radius);
 }
 
-/* Connection Tabs */
 .connection-tabs {
     background-color: #fff;
     border-radius: var(--border-radius-lg);
@@ -597,7 +580,6 @@ document.addEventListener('DOMContentLoaded', function() {
     padding-bottom: 0.5rem;
 }
 
-/* Method Cards */
 .method-card {
     background-color: var(--light-color);
     border-radius: var(--border-radius);
@@ -624,7 +606,6 @@ document.addEventListener('DOMContentLoaded', function() {
     padding: 1.5rem;
 }
 
-/* Instruction List */
 .instruction-list {
     padding-left: 1.5rem;
     margin-bottom: 1.5rem;
@@ -647,7 +628,6 @@ document.addEventListener('DOMContentLoaded', function() {
     margin-bottom: 0.5rem;
 }
 
-/* Code Block */
 .code-block {
     background-color: var(--dark-color);
     color: #fff;
@@ -690,7 +670,6 @@ document.addEventListener('DOMContentLoaded', function() {
     background-color: var(--success-color);
 }
 
-/* Screenshot */
 .screenshot {
     margin: 1.5rem 0;
     text-align: center;
@@ -708,7 +687,6 @@ document.addEventListener('DOMContentLoaded', function() {
     color: var(--secondary-color);
 }
 
-/* Tip Box */
 .tip-box, .note-box {
     background-color: var(--primary-light);
     border-left: 4px solid var(--primary-color);
@@ -731,7 +709,6 @@ document.addEventListener('DOMContentLoaded', function() {
     margin: 0;
 }
 
-/* Web Clients */
 .web-clients {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -755,7 +732,6 @@ document.addEventListener('DOMContentLoaded', function() {
     margin-bottom: 1rem;
 }
 
-/* App List */
 .app-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -779,7 +755,6 @@ document.addEventListener('DOMContentLoaded', function() {
     margin-bottom: 1rem;
 }
 
-/* Commands Section */
 .common-commands-section {
     background-color: #fff;
     border-radius: var(--border-radius-lg);
@@ -839,7 +814,6 @@ document.addEventListener('DOMContentLoaded', function() {
     color: rgba(255, 255, 255, 0.7);
 }
 
-/* Next Steps Section */
 .next-steps-section {
     background-color: #fff;
     border-radius: var(--border-radius-lg);
@@ -895,7 +869,6 @@ document.addEventListener('DOMContentLoaded', function() {
     font-size: var(--font-size-sm);
 }
 
-/* Help Section */
 .help-section {
     background-color: #fff;
     border-radius: var(--border-radius-lg);
@@ -918,7 +891,6 @@ document.addEventListener('DOMContentLoaded', function() {
     margin: 0 0.5rem;
 }
 
-/* Responsive Styles */
 @media (max-width: 768px) {
     .tab-nav {
         flex-wrap: wrap;
