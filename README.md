@@ -1,4 +1,5 @@
-# USOLUTIONS  
+# USOLUTIONS
+
 Empoderant Solucions Globals d'Allotjament  
 
 Benvingut a USOLUTIONS, una empresa internacional líder especialitzada en serveis d'allotjament d'avantguarda. Amb un compromís amb la innovació, la fiabilitat i la satisfacció del client, oferim solucions personalitzades a empreses de totes les mides arreu del món.  
@@ -9,7 +10,7 @@ Uneix-te a nosaltres mentre redefinim el futur de l'allotjament amb una experiè
 
 ## Per què triar USOLUTIONS?  
 
-- **Presència Global**: Operem en múltiples regions arreu del món, garantint solucions d'allotjament de baixa latència i alt rendiment allà on es trobi el teu negoci.  
+- **Presència Global**: Operem en múltiples regions arreu del món, garantint solucions d'allotjament de baixa latència i alt rendiment allà on es trobi el teu negoci.
 - **Atenció al Client 24/7**: El nostre equip de suport dedicat està disponible les 24 hores del dia per ajudar-te amb qualsevol necessitat tècnica o operativa.  
 
 ## Coneix el Nostre Lideratge  
@@ -24,4 +25,4 @@ Les seves habilitats combinades i dedicació són la força impulsora darrere de
 
 ## Llicència  
 
-Aquest projecte està llicenciat sota la [Llicència MIT](LICENSE), garantint col·laboració i innovació obertes.  
+Aquest projecte està llicenciat sota la [Llicència MIT](LICENSE), garantint col·laboració i innovació obertes.
