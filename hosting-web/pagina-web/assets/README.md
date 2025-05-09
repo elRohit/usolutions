@@ -14,10 +14,17 @@ Aquí hi ha tots els recursos estàtics que fa servir la web:
 ## Estructura
 
 assets/
+
 ├── css/
+
 │ ├── style.css # Estils globals
+
 │ └── pages/ # CSS per pàgina (home, about, contact…)
+
 ├── js/
+
 │ └── main.js # Lògica general de front-end
+
 │ └── pages/ # JS per pàgina (home, about, contact…)
+
 └── images/
