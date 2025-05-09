@@ -1,6 +1,6 @@
 # Vídeos de Demostració de USOLUTIONS
 
-Aquesta secció està destinada a incloure els vídeos de demostració de cada part del projecte HSOTING. Cada vídeo mostrarà el funcionament específic de les diferents funcionalitats o mòduls del projecte, facilitant la comprensió i la presentació del treball realitzat.
+Aquesta secció està destinada a incloure els vídeos de demostració de cada part del projecte HOSTING. Cada vídeo mostrarà el funcionament específic de les diferents funcionalitats o mòduls del projecte, facilitant la comprensió i la presentació del treball realitzat.
 
 ## Explicació Detallada del Procés
 
