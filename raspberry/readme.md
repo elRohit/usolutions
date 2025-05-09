@@ -45,7 +45,8 @@ Els passos realitzats han estat els següents:
 
 3. **Configurar un àlies per a facilitar la connexió:**
    S'ha creat un àlies en el fitxer `~/.ssh/config` per simplificar la connexió remota:
-   ```
+
+   ```:
    Host raspberry
    HostName 10.93.255.155
    User ira
