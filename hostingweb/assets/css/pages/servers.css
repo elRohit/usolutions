@@ -1,0 +1,552 @@
+/* Servers Page Specific Styles */
+
+/* Page Header */
+.page-header {
+    background: linear-gradient(135deg, #0066cc, #004a99);
+    color: #fff;
+    padding: 4rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 4rem;
+  }
+  
+  .page-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../images/pattern.svg');
+    opacity: 0.1;
+  }
+  
+  .page-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    animation: fadeInDown 1s ease-out;
+  }
+  
+  .page-header p {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    max-width: 700px;
+    margin: 0 auto;
+    animation: fadeInUp 1s ease-out 0.3s forwards;
+    opacity: 0;
+  }
+  
+  /* Server Types Tabs */
+  .server-types {
+    margin-bottom: 3rem;
+  }
+  
+  .server-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  
+  .tab {
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    background-color: #f8f9fa;
+    color: #333;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .tab::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: -100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+  }
+  
+  .tab:hover::after {
+    left: 100%;
+  }
+  
+  .tab:hover {
+    background-color: #e9ecef;
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  }
+  
+  .tab.active {
+    background-color: #0066cc;
+    color: #fff;
+    box-shadow: 0 6px 15px rgba(0, 102, 204, 0.2);
+  }
+  
+  /* Server Cards */
+  .server-card {
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    margin-bottom: 3rem;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  
+  .server-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  }
+  
+  .server-header {
+    background: linear-gradient(to right, #f8f9fa, #fff);
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e9ecef;
+  }
+  
+  .server-header h2 {
+    margin: 0;
+    font-size: 1.75rem;
+    color: #333;
+    position: relative;
+    padding-left: 1.5rem;
+  }
+  
+  .server-header h2::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 70%;
+    background-color: #0066cc;
+    border-radius: 2px;
+  }
+  
+  .server-price {
+    text-align: right;
+  }
+  
+  .server-price .price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0066cc;
+    display: block;
+  }
+  
+  .server-price .period {
+    font-size: 1rem;
+    color: #6c757d;
+  }
+  
+  .server-content {
+    padding: 2rem;
+  }
+  
+  .server-description {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: #555;
+    line-height: 1.7;
+  }
+  
+  .managed-app {
+    margin-bottom: 2rem;
+  }
+  
+  .badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 50px;
+    background-color: rgba(0, 102, 204, 0.1);
+    color: #0066cc;
+  }
+  
+  .server-features {
+    margin-bottom: 2.5rem;
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+  
+  .server-features h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1.25rem;
+    color: #333;
+    position: relative;
+    padding-bottom: 0.75rem;
+  }
+  
+  .server-features h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: #0066cc;
+  }
+  
+  .server-features ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.75rem 2rem;
+  }
+  
+  .server-features li {
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    color: #555;
+  }
+  
+  .server-features li i {
+    color: #28a745;
+    margin-right: 0.75rem;
+    font-size: 1.1rem;
+  }
+  
+  .server-plans h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1.25rem;
+    color: #333;
+    position: relative;
+    padding-bottom: 0.75rem;
+  }
+  
+  .server-plans h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: #0066cc;
+  }
+  
+  .plans-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .plan-option {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 1.75rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .plan-option::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #0066cc, #17a2b8);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  
+  .plan-option:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  }
+  
+  .plan-option:hover::before {
+    transform: scaleX(1);
+  }
+  
+  .plan-option h4 {
+    margin-bottom: 1.25rem;
+    color: #333;
+    font-size: 1.25rem;
+  }
+  
+  .plan-option ul {
+    list-style: none;
+    margin-bottom: 1.5rem;
+    text-align: left;
+  }
+  
+  .plan-option li {
+    margin-bottom: 0.75rem;
+    color: #555;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .plan-option li strong {
+    color: #333;
+  }
+  
+  .plan-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0066cc;
+    margin-bottom: 1.25rem;
+    padding: 0.75rem 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  
+  .plan-option .btn {
+    width: 100%;
+    border-radius: 50px;
+    padding: 0.75rem 1.5rem;
+  }
+  
+  /* FAQ Section */
+  .server-faq {
+    padding: 5rem 0;
+    background-color: #f8f9fa;
+    position: relative;
+  }
+  
+  .server-faq::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../images/dots.svg');
+    opacity: 0.05;
+  }
+  
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+  }
+  
+  .faq-item {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  
+  .faq-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  }
+  
+  .faq-item h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: #333;
+    position: relative;
+    padding-left: 2rem;
+  }
+  
+  .faq-item h3::before {
+    content: '\f059';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    color: #0066cc;
+  }
+  
+  .faq-item p {
+    color: #555;
+    line-height: 1.7;
+  }
+  
+  /* CTA Section */
+  .cta {
+    background: linear-gradient(135deg, #0066cc, #004a99);
+    color: #fff;
+    padding: 5rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../images/pattern.svg');
+    opacity: 0.1;
+  }
+  
+  .cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .cta h2 {
+    font-size: 2.75rem;
+    margin-bottom: 1.25rem;
+    color: #fff;
+  }
+  
+  .cta p {
+    font-size: 1.25rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+  }
+  
+  .cta .btn {
+    padding: 0.75rem 2.5rem;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    background-color: #fff;
+    color: #0066cc;
+    border: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+  
+  .cta .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Animations */
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 992px) {
+    .page-header h1 {
+      font-size: 2.5rem;
+    }
+    
+    .server-header {
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
+    }
+    
+    .server-header h2 {
+      padding-left: 0;
+    }
+    
+    .server-header h2::before {
+      display: none;
+    }
+    
+    .server-price {
+      text-align: center;
+    }
+    
+    .cta h2 {
+      font-size: 2.25rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .page-header {
+      padding: 3rem 0;
+    }
+    
+    .page-header h1 {
+      font-size: 2.25rem;
+    }
+    
+    .server-tabs {
+      flex-wrap: wrap;
+    }
+    
+    .tab {
+      width: 100%;
+      text-align: center;
+    }
+    
+    .server-features ul {
+      grid-template-columns: 1fr;
+    }
+    
+    .cta h2 {
+      font-size: 2rem;
+    }
+    
+    .cta p {
+      font-size: 1.1rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .page-header h1 {
+      font-size: 1.75rem;
+    }
+    
+    .page-header p {
+      font-size: 1rem;
+    }
+    
+    .server-content {
+      padding: 1.5rem;
+    }
+    
+    .server-description {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .plan-option {
+      padding: 1.5rem 1rem;
+    }
+    
+    .faq-item {
+      padding: 1.5rem;
+    }
+  }
+  
