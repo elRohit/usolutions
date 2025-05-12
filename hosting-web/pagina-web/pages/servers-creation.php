@@ -668,6 +668,15 @@ $storage = 'USol-Data';
 $server_form = $config['type'];
 $service = $config['service'];
 
+// Se obtiene la IP del nodo
+if (shell_exec("ping -c 1 192.168.5.251 &> /dev/null")) {
+  $nodo_seleccionado = "node1";
+} elseif (shell_exec("ping -c 1 192.168.5.252 &> /dev/null")) {
+  $nodo_seleccionado = "node2";
+} elseif (shell_exec("ping -c 1 192.168.5.252 &> /dev/null")) {
+  $nodo_seleccionado = "node3";
+}
+
 if ($server_form == 'unmanaged') {
     $hostname   = $config['hostname'];
     $username   = $config['username'];
@@ -703,7 +712,7 @@ provider "proxmox" {
 
 resource "proxmox_lxc" "$hostname" {
     count             = 1
-    target_node       = "node1"
+    target_node       = "$nodo_seleccionado"
     hostname          = "$hostname"
     ostemplate        = "$template"
     password          = "P@ssw0rd"
@@ -888,7 +897,7 @@ provider "proxmox" {
 
 resource "proxmox_lxc" "$hostname" {
     count             = 1
-    target_node       = "node1"
+    target_node       = "$nodo_seleccionado"
     hostname          = "$hostname"
     ostemplate        = "$template"
     password          = "P@ssw0rd"
@@ -1066,7 +1075,7 @@ provider "proxmox" {
 
 resource "proxmox_lxc" "$hostname" {
     count             = 1
-    target_node       = "node1"
+    target_node       = "$nodo_seleccionado"
     hostname          = "$hostname"
     ostemplate        = "$template"
     password          = "P@ssw0rd"
